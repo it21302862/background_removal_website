@@ -46,34 +46,39 @@ https://github.com/it21302862/background_removal_website.git
 ## Setup Environment Variables
 
 server/.env
-
+```
 CLERK_WEBHOOK_SECRET = your_clerk_secret
 MONGO_URI = mong_uri
 CLIPDROP_API = your_removebg_api_key
-
-
+```
 client/.env
+```
 VITE_CLERK_PUBLISHABLE_KEY =your_clerk_publishable_key
 VITE_BACKEND_URL= http://localhost:8000
+```
 
 ## Install Dependencies
-# Backend
+### Backend
 ```
 cd server
 npm install
 ```
 
-# Frontend
+### Frontend
 ```
 cd client
 npm install
 ```
 
 ## Run Locally
-# Start backend
+### Start backend
+```
 cd server
 npm run dev
+```
 
-# Start frontend
+### Start frontend
+```
 cd client
 npm run start
+```
