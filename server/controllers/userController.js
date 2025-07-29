@@ -45,12 +45,24 @@ const clerkWebhooks = async (req, res) => {
         break;
       }
       default:
-        res.status(400).json({ success: false, message: "Unhandled event type" });
+        res
+          .status(400)
+          .json({ success: false, message: "Unhandled event type" });
     }
   } catch (error) {
     console.log("Webhook Error:", error.message);
     res.status(400).json({ success: false, message: error.message });
   }
 };
-
-export { clerkWebhooks };
+//get user variables and credit data
+const userCredits = async (req, res) => {
+  try {
+    const { clerkId } = req.body;
+    const userData = await userModel.findOne({ clerkId });
+    res.json({ success: true, credits: userData.creditBalance });
+  } catch (error) {
+    console.log("Webhook Error:", error.message);
+    res.status(400).json({ success: false, message: error.message });
+  }
+};
+export { clerkWebhooks, userCredits };
